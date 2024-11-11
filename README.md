@@ -1,2 +1,5 @@
 # bookstore-app (not yet finished)
+
+![Screenshot](public/Screenshot.png)
+
 This application is an example of consuming the Monolith Repository Restful API. I built it using NextJS and Tailwind CSS. If you want to run it, you must also run the Monolith Repository Restful API.
