@@ -1,13 +1,27 @@
 'use client';
 
 import Form from 'next/form';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 
 export default function InputSearch() {
     const searchParams = useSearchParams();
-    const search = searchParams.get('search');
+    const { replace } = useRouter();
+    const pathname = usePathname();
+
+    function handleSearch(formData) {
+        const params = new URLSearchParams(searchParams);
+        const search = formData.get('search');
+        params.delete('page');
+        if (search) {
+            params.set('search', search);
+        } else {
+            params.delete('search');
+        }
+        replace(`${pathname}?${params.toString()}`, { scroll: false });
+    }
+
     return (
-        <Form action="products" className="w-full">
+        <Form action={handleSearch} className="w-full">
             <label
                 htmlFor="default-search"
                 className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -39,7 +53,6 @@ export default function InputSearch() {
                     type="search"
                     className="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Search Mockups, Logos..."
-                    required
                 />
             </div>
         </Form>
