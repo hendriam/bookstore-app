@@ -1,8 +1,8 @@
-import { Button } from '@nextui-org/react';
 import ProductImage from './ProductImage';
 import ProductName from './ProductName';
 import ProductStar from './ProductStar';
 import ProductPrice from './ProductPrice';
+import ButtonSM from '../ButtonSM';
 
 const ProductCard = ({ product }) => {
     return (
@@ -13,9 +13,7 @@ const ProductCard = ({ product }) => {
                 <ProductStar />
                 <div className="flex items-center justify-between">
                     <ProductPrice>{product.price}</ProductPrice>
-                    <Button color="primary" radius="sm" className="h-9 min-w-18">
-                        Add to Cart
-                    </Button>
+                    <ButtonSM>Add to Cart</ButtonSM>
                 </div>
             </div>
         </div>
