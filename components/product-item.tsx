@@ -32,7 +32,7 @@ const ProductItem = async ({
     if (typeFetch == "All") {
         return (
             <div className="flex flex-col space-y-4">
-                <div key={totalData} className="grid grid-cols-4 justify-around gap-3">
+                <div className="grid grid-cols-4 justify-around gap-3">
                     {products.map((product: any) => (
                         <Card key={product.id} product={product} />
                     ))}
@@ -43,9 +43,9 @@ const ProductItem = async ({
     } else {
         return (
             <div className="flex flex-col space-y-4">
-                <div key={totalData} className="grid grid-cols-4 justify-around gap-3">
+                <div className="grid grid-cols-4 justify-around gap-3">
                     {products.map((product: any) => (
-                        <Card key={product.id} product={product} />
+                        <Card key={Math.floor(Math.random() * 1000)} product={product} />
                     ))}
                 </div>
             </div>

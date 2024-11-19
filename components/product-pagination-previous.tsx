@@ -3,11 +3,7 @@
 import Previous from "./icon/previous";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
-const ProductPaginationPrevious = ({
-    currentPage,
-}: {
-    currentPage: number;
-}) => {
+const ProductPaginationPrevious = ({ currentPage }: { currentPage: number }) => {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter();

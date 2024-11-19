@@ -16,7 +16,9 @@ const ProductSearch = () => {
         } else {
             params.delete("search");
         }
-        replace(`${pathname}?${params.toString()}`, { scroll: false });
+        pathname === "/"
+            ? replace(`/product/${pathname}?${params.toString()}`, { scroll: false })
+            : replace(`${pathname}?${params.toString()}`, { scroll: false });
     }
 
     return (
