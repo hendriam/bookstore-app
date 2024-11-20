@@ -3,8 +3,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "./button";
 import { useTheme } from "next-themes";
-import Moon from "./icon/moon";
-import Sun from "./icon/sun";
+import { DotsHorizontal } from "./icon/dots-horizontal";
+import { Sun } from "./icon/sun";
+import { Moon } from "./icon/moon";
+import { DotsVertical } from "./icon/dots-vertical";
 
 const SwitcherMode = () => {
     const [isDroped, setDroped] = useState<boolean>(false);
@@ -27,9 +29,7 @@ const SwitcherMode = () => {
                 setDroped(false);
             }
         };
-
         document.addEventListener("mousedown", handler);
-
         return () => {
             document.removeEventListener("mousedown", handler);
         };
@@ -46,15 +46,7 @@ const SwitcherMode = () => {
                 className="px-1 relative"
                 onClick={() => setDroped(!isDroped)}
             >
-                <svg
-                    className="w-6 h-6"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 4 15"
-                >
-                    <path d="M3.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 6.041a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5.959a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-                </svg>
+                <DotsVertical />
             </Button>
 
             <div
@@ -65,18 +57,18 @@ const SwitcherMode = () => {
                         <button
                             type="button"
                             onClick={handleLightMode}
-                            className="px-2 py-2 text-xs hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            className="w-full px-2 py-2 text-xs hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
-                            Light
+                            <Sun />
                         </button>
                     </li>
                     <li>
                         <button
                             type="button"
                             onClick={handleDarkMode}
-                            className="px-2 py-2 text-xs hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                            className="w-full px-2 py-2 text-xs hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
-                            Dark
+                            <Moon />
                         </button>
                     </li>
                 </ul>
