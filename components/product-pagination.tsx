@@ -11,7 +11,7 @@ const ProductPagination = ({
 }) => {
     let pages = [];
     for (let index = 1; index <= totalPages; index++) {
-        pages.push(<ProductPaginationList page={index} currentPage={currentPage} />);
+        pages.push(<ProductPaginationList key={index} page={index} currentPage={currentPage} />);
     }
 
     return (

@@ -28,7 +28,7 @@ const ProductPaginationNext = ({
     const disabled: boolean = totalPages == currentPage ? true : false;
 
     return (
-        <li>
+        <li key="NextPage">
             <button
                 onClick={() => {
                     handleOnclickNextPage(currentPage);

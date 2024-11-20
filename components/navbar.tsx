@@ -1,8 +1,8 @@
 import { Button } from "./button";
-import { ClientComponent } from "./ClientComponent";
 import Cart from "./icon/cart";
 import Logo from "./logo";
 import ProductSearch from "./product-search";
+import SwitcherMode from "./switcher-mode";
 import NavToggle from "./toggle";
 
 const Navbar = () => {
@@ -19,6 +19,9 @@ const Navbar = () => {
                         Login
                     </Button>
                     <Button type="button">Sign up</Button>
+                    <div className="border-r border-gray-200 dark:border-gray-600 "></div>
+                    {/* <IconMode /> */}
+                    <SwitcherMode />
                 </div>
                 <NavToggle />
             </div>

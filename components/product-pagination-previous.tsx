@@ -22,7 +22,7 @@ const ProductPaginationPrevious = ({ currentPage }: { currentPage: number }) => 
     const disabled: boolean = currentPage == 1 ? true : false;
 
     return (
-        <li>
+        <li key="PreviousPage">
             <button
                 onClick={() => {
                     handleOnclickPreviousPage(currentPage);

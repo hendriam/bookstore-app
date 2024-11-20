@@ -34,7 +34,7 @@ const ProductItem = async ({
             <div className="flex flex-col space-y-4">
                 <div className="grid grid-cols-4 justify-around gap-3">
                     {products.map((product: any) => (
-                        <Card key={product.id} product={product} />
+                        <Card key={product._id} product={product} />
                     ))}
                 </div>
                 <ProductPagination totalPages={totalPages} currentPage={currentPage} />
@@ -45,7 +45,7 @@ const ProductItem = async ({
             <div className="flex flex-col space-y-4">
                 <div className="grid grid-cols-4 justify-around gap-3">
                     {products.map((product: any) => (
-                        <Card key={Math.floor(Math.random() * 1000)} product={product} />
+                        <Card key={product._id} product={product} />
                     ))}
                 </div>
             </div>
