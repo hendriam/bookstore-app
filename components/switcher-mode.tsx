@@ -43,7 +43,7 @@ const SwitcherMode = () => {
                 intent="secondary"
                 type="button"
                 size="sm"
-                className="px-1 relative"
+                className="px-0 relative"
                 onClick={() => setDroped(!isDroped)}
             >
                 <DotsVertical />

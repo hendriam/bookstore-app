@@ -34,7 +34,7 @@ export const fetchDataProduct = async (
     typeFetch?: TypeFetch
 ): Promise<Response> => {
     let url = `http://localhost:3000/api/v1/products?page=${page}&limit=${limit}&search=${search}`;
-    const res = await fetch(url);
+    let res = await fetch(url);
     if (!res.ok) {
         throw new Error("Failed to fetch data");
     }

@@ -1,7 +1,7 @@
 export const DotsVertical = () => {
     return (
         <svg
-            className="w-6 h-6 text-gray-800 dark:text-white"
+            className="w-5 h-6"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -12,7 +12,7 @@ export const DotsVertical = () => {
             <path
                 stroke="currentColor"
                 strokeLinecap="round"
-                strokeWidth="2"
+                strokeWidth="4"
                 d="M12 6h.01M12 12h.01M12 18h.01"
             />
         </svg>
