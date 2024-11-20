@@ -1,18 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "./button";
 import { useTheme } from "next-themes";
 import Moon from "./icon/moon";
 import Sun from "./icon/sun";
 
 const SwitcherMode = () => {
-    const [isDroped, setDroped] = useState(false);
+    const [isDroped, setDroped] = useState<boolean>(false);
     const { setTheme } = useTheme();
-
-    function handleDropdown() {
-        setDroped(!isDroped);
-    }
+    let menuRef = useRef<HTMLDivElement>(null);
 
     function handleDarkMode() {
         setTheme("dark");
@@ -24,14 +21,29 @@ const SwitcherMode = () => {
         setDroped(false);
     }
 
+    useEffect(() => {
+        let handler = (e: any) => {
+            if (!menuRef.current?.contains(e.target)) {
+                setDroped(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handler);
+
+        return () => {
+            document.removeEventListener("mousedown", handler);
+        };
+    });
+
     const hidden = isDroped ? "block" : "hidden";
+
     return (
-        <div>
+        <div ref={menuRef}>
             <Button
                 intent="secondary"
                 type="button"
                 className="px-1 relative"
-                onClick={handleDropdown}
+                onClick={() => setDroped(!isDroped)}
             >
                 <svg
                     className="w-6 h-6"
