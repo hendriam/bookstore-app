@@ -15,12 +15,13 @@ const Navbar = () => {
                     <Cart />
                 </div>
                 <div className="hidden md:flex space-x-1">
-                    <Button type="button" intent="secondary">
+                    <Button size="sm" intent="secondary">
                         Login
                     </Button>
-                    <Button type="button">Sign up</Button>
+                    <Button type="button" size="sm">
+                        Sign up
+                    </Button>
                     <div className="border-r border-gray-200 dark:border-gray-600 "></div>
-                    {/* <IconMode /> */}
                     <SwitcherMode />
                 </div>
                 <NavToggle />

@@ -42,6 +42,7 @@ const SwitcherMode = () => {
             <Button
                 intent="secondary"
                 type="button"
+                size="sm"
                 className="px-1 relative"
                 onClick={() => setDroped(!isDroped)}
             >
@@ -57,7 +58,7 @@ const SwitcherMode = () => {
             </Button>
 
             <div
-                className={`z-10 ${hidden} mt-2 absolute bg-white divide-y divide-gray-100 rounded-lg shadow  dark:bg-gray-700 dark:divide-gray-60`}
+                className={`z-10 ${hidden} mt-2 absolute bg-white divide-y divide-gray-100 rounded-lg shadow-md  dark:bg-gray-700 dark:divide-gray-60`}
             >
                 <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
                     <li>

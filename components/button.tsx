@@ -10,15 +10,15 @@ const button = cva("font-medium text-center rounded-lg focus:ring-4 focus:outlin
                 "text-secondary-foreground border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-secondary dark:text-secondary-foreground dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700",
         },
         size: {
-            xsmall: "px-3 py-2 text-xs",
-            small: "px-3 py-2 text-sm",
-            medium: "px-4 py-2.5 text-sm",
+            xs: "px-3 py-1.5 text-sm",
+            sm: "px-3 py-2 text-sm",
+            md: "px-4 py-2.5 text-sm",
         },
     },
-    compoundVariants: [{ intent: "primary", size: "medium", class: "" }],
+    compoundVariants: [{ intent: "primary", size: "md", class: "" }],
     defaultVariants: {
         intent: "primary",
-        size: "medium",
+        size: "md",
     },
 });
 
