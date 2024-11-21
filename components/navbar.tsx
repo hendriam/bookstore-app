@@ -8,9 +8,11 @@ import ProductSearch from "./product-search";
 import SwitcherMode from "./switcher-mode";
 import NavToggle from "./toggle";
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
     const [isToggled, setToggled] = useState<boolean>(false);
+    const router = useRouter();
     const handleToggleBar = () => setToggled(!isToggled);
     let menuRef = useRef<HTMLDivElement>(null);
 
@@ -44,9 +46,11 @@ const Navbar = () => {
                     >
                         Login
                     </Link>
-                    <Link href="/signup" rel="sign up">
-                        <Button type="button">Sign up</Button>
-                    </Link>
+                    {/* <Link href="/signup" rel="sign up"> */}
+                    <Button type="button" onClick={() => router.push("/signup")}>
+                        Sign up
+                    </Button>
+                    {/* </Link> */}
                     <SwitcherMode />
                 </div>
                 <NavToggle onClickHandler={handleToggleBar} />

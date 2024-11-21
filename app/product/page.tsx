@@ -1,3 +1,5 @@
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
 import Products from "@/components/products";
 
 const Product = async (props: {
@@ -9,9 +11,13 @@ const Product = async (props: {
     const limit = Number(searchParams?.limit || 5);
 
     return (
-        <div className="max-w-screen-lg mx-auto">
-            <Products search={search} page={page} limit={limit} />
-        </div>
+        <>
+            <Navbar />
+            <div className="max-w-screen-lg mx-auto">
+                <Products search={search} page={page} limit={limit} />
+            </div>
+            <Footer />
+        </>
     );
 };
 

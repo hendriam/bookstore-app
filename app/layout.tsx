@@ -31,9 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <Navbar />
-                    {children}
-                    <Footer />
+                    <main className="h-screen flex flex-col justify-between">{children}</main>
                 </ThemeProvider>
             </body>
         </html>
