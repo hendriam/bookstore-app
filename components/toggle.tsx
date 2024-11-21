@@ -1,12 +1,25 @@
 import { Button } from "./button";
 import Bar from "./icon/bar";
+import SwitcherMode from "./switcher-mode";
 
-const NavToggle = () => {
+interface ToggleProps {
+    onClickHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+const NavToggle = (props: ToggleProps) => {
     return (
-        <Button type="button" intent="secondary" className="md:hidden block hover:text-foreground">
-            <span className="sr-only">Open main menu</span>
-            <Bar />
-        </Button>
+        <div className="md:hidden flex space-x-2">
+            <Button
+                onClick={props.onClickHandler}
+                type="button"
+                intent="secondary"
+                className="hover:text-foreground"
+            >
+                <span className="sr-only">Open main menu</span>
+                <Bar />
+            </Button>
+            <SwitcherMode />
+        </div>
     );
 };
 

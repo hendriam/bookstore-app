@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "./button";
 import { useTheme } from "next-themes";
-import { DotsHorizontal } from "./icon/dots-horizontal";
 import { Sun } from "./icon/sun";
 import { Moon } from "./icon/moon";
 import { DotsVertical } from "./icon/dots-vertical";
@@ -35,15 +34,15 @@ const SwitcherMode = () => {
         };
     });
 
-    const hidden = isDroped ? "block" : "hidden";
+    let hidden = isDroped ? "block" : "hidden";
 
     return (
         <div ref={menuRef}>
             <Button
                 intent="secondary"
                 type="button"
-                size="sm"
-                className="px-0 relative"
+                size="tg"
+                className="relative"
                 onClick={() => setDroped(!isDroped)}
             >
                 <DotsVertical />

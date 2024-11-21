@@ -12,7 +12,8 @@ const button = cva("font-medium text-center rounded-lg focus:ring-4 focus:outlin
         size: {
             xs: "px-3 py-1.5 text-sm",
             sm: "px-3 py-2 text-sm",
-            md: "px-4 py-2.5 text-sm",
+            md: "px-4 py-3 text-sm",
+            tg: "px-1 text-sm py-2.5",
         },
     },
     compoundVariants: [{ intent: "primary", size: "md", class: "" }],

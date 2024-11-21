@@ -5,15 +5,11 @@ const Footer = () => {
     return (
         <footer className="dark:bg-gray-900 mt-4">
             <div className="w-full max-w-screen-lg mx-auto py-4 md:py-8">
-                <div className="flex items-center justify-between">
+                <div className="flex justify-between items-center">
                     <Logo />
-                    <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                    <ul className="flex text-sm hover:text-blue-700 dark:hover:text-gray-300 hover:underline">
                         <li>
-                            <Link
-                                href="/about"
-                                rel="about my store"
-                                className="hover:underline me-4 md:me-6"
-                            >
+                            <Link href="/about" rel="about my store" className="">
                                 About
                             </Link>
                         </li>

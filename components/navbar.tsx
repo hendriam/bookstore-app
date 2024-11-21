@@ -1,32 +1,57 @@
+"use client";
+
+import Link from "next/link";
 import { Button } from "./button";
 import Cart from "./icon/cart";
 import Logo from "./logo";
 import ProductSearch from "./product-search";
 import SwitcherMode from "./switcher-mode";
 import NavToggle from "./toggle";
+import { useEffect, useRef, useState } from "react";
 
 const Navbar = () => {
+    const [isToggled, setToggled] = useState<boolean>(false);
+    const handleToggleBar = () => setToggled(!isToggled);
+    let menuRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        let handler = (e: any) => {
+            if (!menuRef.current?.contains(e.target)) {
+                setToggled(false);
+            }
+        };
+        document.addEventListener("mousedown", handler);
+        return () => {
+            document.removeEventListener("mousedown", handler);
+        };
+    });
+
+    let hidden = isToggled ? "flex" : "hidden";
+
     return (
         <nav className="border-b border-gray-200 dark:border-gray-600 dark:bg-background ">
-            <div className="max-w-screen-lg flex justify-between items-center mx-auto py-4">
+            <div className="max-w-screen-lg flex justify-between mx-auto py-4">
                 <Logo />
                 <div className="hidden w-2/5 md:flex items-center space-x-1">
                     <ProductSearch />
                     <Cart />
                 </div>
-                <div className="hidden md:flex space-x-1">
-                    <Button size="sm" intent="secondary">
+                <div className="hidden md:flex items-center space-x-3">
+                    <Link
+                        href="/login"
+                        rel="login"
+                        className=" hover:text-blue-700 hover:underline dark:hover:text-gray-300"
+                    >
                         Login
-                    </Button>
-                    <Button type="button" size="sm">
-                        Sign up
-                    </Button>
-                    <div className="border-r border-gray-200 dark:border-gray-600 "></div>
+                    </Link>
+                    <Link href="/signup" rel="sign up">
+                        <Button type="button">Sign up</Button>
+                    </Link>
                     <SwitcherMode />
                 </div>
-                <NavToggle />
+                <NavToggle onClickHandler={handleToggleBar} />
             </div>
-            <div className="md:hidden flex flex-col space-y-2 mb-2">
+            <div className={`${hidden} flex-col space-y-2 mb-2`} ref={menuRef}>
                 <ProductSearch />
                 <div className="bg-gray-200 dark:bg-gray-700 flex flex-col space-y-2 p-3 rounded-lg">
                     <Button type="button" intent="secondary" className="bg-gray-50">
