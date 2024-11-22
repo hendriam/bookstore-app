@@ -5,6 +5,11 @@ import { TitleFormAuth } from "@/components/auth/auth-title";
 import { Button } from "@/components/button";
 import Link from "next/link";
 
+export const metadata = {
+    title: "Sign-up Page",
+    description: "Create your account",
+};
+
 const SignUp = () => {
     return (
         <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
