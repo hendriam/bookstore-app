@@ -22,7 +22,6 @@ export const FormSignIn = () => {
 
     return (
         <form className="space-y-3" action={formAction}>
-            {data?.token}
             <TitleFormAuth>Sign in to your account</TitleFormAuth>
             <div>
                 <h2 className="text-xs font-semibold text-red-500 dark:text-gray-500">

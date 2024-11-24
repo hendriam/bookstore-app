@@ -3,6 +3,7 @@
 import { SessionData, sessionOptions } from "@/libs/session";
 import { getIronSession } from "iron-session";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 interface Response {
     message?: string;
@@ -41,6 +42,12 @@ export const loginAction = async (prevState: any, formData: FormData): Promise<R
     } catch (err: any) {
         return err;
     }
+};
+
+export const logoutAction = async () => {
+    const session = await getIronSession<SessionData>(await cookies(), sessionOptions);
+    session.destroy();
+    redirect("/");
 };
 
 const storeIronSessionData = async (token: any) => {

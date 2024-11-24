@@ -3,6 +3,7 @@ import profile from "/public/images/profile.jpg";
 import React, { useEffect, useRef, useState } from "react";
 import { Claims } from "@/libs/session";
 import { decodeJwt, jwtDecrypt } from "jose";
+import FormSignOut from "./auth/form-sign-out";
 
 const NavbarMenuProfile = ({ token }: { token: string }) => {
     const [isDroped, setDroped] = useState<boolean>(false);
@@ -58,12 +59,7 @@ const NavbarMenuProfile = ({ token }: { token: string }) => {
                     </li>
                 </ul>
                 <div className="py-1">
-                    <a
-                        href="#"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                    >
-                        Sign out
-                    </a>
+                    <FormSignOut />
                 </div>
             </div>
         </div>
