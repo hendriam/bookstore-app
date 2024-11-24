@@ -8,15 +8,21 @@ import { RememberMe } from "./auth-remember-me";
 import { TitleFormAuth } from "./auth-title";
 import ButtonLoading from "../button-loading";
 import { loginAction } from "@/api/api-auth";
-import { useActionState } from "react";
-import { after } from "node:test";
+import { useActionState, useEffect } from "react";
+import { redirect } from "next/navigation";
 
 export const FormSignIn = () => {
     const [data, formAction, isLoading] = useActionState(loginAction, null);
-    console.log("data in component", data);
+
+    useEffect(() => {
+        if (data?.token) {
+            redirect("/");
+        }
+    });
 
     return (
         <form className="space-y-3" action={formAction}>
+            {data?.token}
             <TitleFormAuth>Sign in to your account</TitleFormAuth>
             <div>
                 <h2 className="text-xs font-semibold text-red-500 dark:text-gray-500">

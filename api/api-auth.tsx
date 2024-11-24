@@ -1,5 +1,9 @@
 "use server";
 
+import { SessionData, sessionOptions } from "@/libs/session";
+import { getIronSession } from "iron-session";
+import { cookies } from "next/headers";
+
 interface Response {
     message?: string;
     token?: string;
@@ -32,8 +36,16 @@ export const loginAction = async (prevState: any, formData: FormData): Promise<R
         }
 
         let data: Response = await res.json();
+        await storeIronSessionData(data.token);
         return data;
     } catch (err: any) {
         return err;
     }
+};
+
+const storeIronSessionData = async (token: any) => {
+    const session = await getIronSession<SessionData>(await cookies(), sessionOptions);
+    session.isLoggedIn = true;
+    session.token = token;
+    await session.save();
 };
