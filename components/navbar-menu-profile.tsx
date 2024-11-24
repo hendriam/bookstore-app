@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Claims } from "@/libs/session";
 import { decodeJwt, jwtDecrypt } from "jose";
 import FormSignOut from "./auth/form-sign-out";
+import Link from "next/link";
 
 const NavbarMenuProfile = ({ token }: { token: string }) => {
     const [isDroped, setDroped] = useState<boolean>(false);
@@ -42,20 +43,22 @@ const NavbarMenuProfile = ({ token }: { token: string }) => {
                     aria-labelledby="avatarButton"
                 >
                     <li>
-                        <a
-                            href="#"
+                        <Link
+                            href="/profile"
+                            rel="profile"
                             className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                             Profile
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a
+                        <Link
                             href="#"
+                            rel="settings"
                             className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         >
                             Settings
-                        </a>
+                        </Link>
                     </li>
                 </ul>
                 <div className="py-1">
