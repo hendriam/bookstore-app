@@ -5,7 +5,7 @@ import { getIronSession } from "iron-session";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-interface Response {
+interface ResponseLogin {
     message?: string;
     token?: string;
     errors?: {
@@ -17,7 +17,19 @@ interface Response {
     }[];
 }
 
-export const loginAction = async (prevState: any, formData: FormData): Promise<Response> => {
+interface ResponseSignUp {
+    code: number;
+    message?: string;
+    errors?: {
+        type: string;
+        value: string;
+        msg: string;
+        path: string;
+        location: string;
+    }[];
+}
+
+export const loginAction = async (prevState: any, formData: FormData): Promise<ResponseLogin> => {
     let email = formData.get("email") as string;
     let password = formData.get("password") as string;
     let url = `http://localhost:3000/api/v1/users/login`;
@@ -32,12 +44,42 @@ export const loginAction = async (prevState: any, formData: FormData): Promise<R
         });
 
         if (!res.ok) {
-            let err: Response = await res.json();
+            let err: ResponseLogin = await res.json();
             return err;
         }
 
-        let data: Response = await res.json();
+        let data: ResponseLogin = await res.json();
         await storeIronSessionData(data.token);
+        return data;
+    } catch (err: any) {
+        return err;
+    }
+};
+
+export const signupAction = async (prevState: any, formData: FormData): Promise<ResponseSignUp> => {
+    let fullname = formData.get("fullname") as string;
+    let email = formData.get("email") as string;
+    let password = formData.get("password") as string;
+    let url = `http://localhost:3000/api/v1/users/register`;
+
+    try {
+        let res = await fetch(url, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+            method: "POST",
+            body: JSON.stringify({ fullname, email, password }),
+        });
+
+        if (!res.ok) {
+            let statusCode = res.status;
+            let err: ResponseSignUp = await res.json();
+            err.code = statusCode;
+            return err;
+        }
+
+        let data: ResponseSignUp = await res.json();
+        data.code = res.status;
         return data;
     } catch (err: any) {
         return err;

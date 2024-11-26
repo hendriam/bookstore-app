@@ -28,7 +28,7 @@ const NavbarMenuProfile = ({ token }: { token: string }) => {
     return (
         <div className="relative top-1" ref={menuRef}>
             <button type="button" onClick={() => setDroped(!isDroped)}>
-                <Image src={profile} alt="profile" className="w-11 h-11 rounded-full" />
+                <Image src={profile} alt="profile" className="w-12 h-12 rounded-full" />
             </button>
             {/* Dropdown menu */}
             <div
