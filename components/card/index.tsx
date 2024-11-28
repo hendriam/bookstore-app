@@ -22,7 +22,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ product }) => {
     return (
         <div className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <CardImage srcImg={product.image} altImg={product.name} />
+            <CardImage id={product._id} srcImg={product.image} altImg={product.name} />
             <div className="px-5 pb-5">
                 <CardTitle id={product._id} title={product.name} />
                 <CardStar />

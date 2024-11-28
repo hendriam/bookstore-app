@@ -8,6 +8,11 @@ interface Response {
     };
 }
 
+interface ResponseById {
+    message: string;
+    data: Product;
+}
+
 interface Product {
     [x: string]: any;
     _id: string;
@@ -38,5 +43,15 @@ export const fetchDataProduct = async (
     if (!res.ok) {
         throw new Error("Failed to fetch data");
     }
+    return res.json();
+};
+
+export const fetchDataProductById = async (id: string): Promise<ResponseById> => {
+    let url = `http://localhost:3000/api/v1/products/${id}`;
+    let res = await fetch(url);
+    if (!res.ok) {
+        throw new Error("Failed to fetch data");
+    }
+
     return res.json();
 };

@@ -2,7 +2,6 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import Products from "@/components/products";
 import { getIronSessionData } from "@/libs/session";
-import { decodeJwt } from "jose";
 
 const Product = async (props: {
     searchParams?: Promise<{ search?: string; page?: number; limit?: number }>;
@@ -11,11 +10,7 @@ const Product = async (props: {
     const search = searchParams?.search || "";
     const page = Number(searchParams?.page) || 1;
     const limit = Number(searchParams?.limit || 5);
-
     const session = await getIronSessionData();
-    // const claims = decodeJwt(session.token);
-    // console.log(claims);
-
     return (
         <>
             <Navbar isLoggedIn={session.isLoggedIn} token={session.token} />

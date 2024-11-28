@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const CardImage = ({ ...props }) => {
     return (
-        <a href="#">
+        <Link href={"product/" + props.id}>
             <Image
                 className="p-5 rounded-t-lg"
                 src={"http://localhost:3000/api/v1/" + props.srcImg}
@@ -10,7 +11,7 @@ const CardImage = ({ ...props }) => {
                 height={200}
                 alt={props.altImg}
             />
-        </a>
+        </Link>
     );
 };
 export default CardImage;
