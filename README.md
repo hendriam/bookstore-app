@@ -5,4 +5,4 @@ This application is an example of consuming the
 built it using NextJS and Tailwind CSS. If you want to run it, you must also run the
 [**Monolith Repository Restful API**](https://github.com/hendriam/nodejs-monolith-restful-api).
 
-![Screenshot](public/Screenshot.png)
+![Light mode](public/light.png) ![Dark mode](public/dark.png)
