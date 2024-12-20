@@ -1,7 +1,7 @@
 const Cart = () => {
     return (
         <svg
-            className="w-6 h-6 text-gray-800 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-white cursor-pointer"
+            className="w-6 h-6 "
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="24"

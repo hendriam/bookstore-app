@@ -31,7 +31,7 @@ const Navbar = (session: SessionData) => {
         <nav className="border-b border-gray-200 dark:border-gray-600 dark:bg-background ">
             <div className="max-w-screen-lg flex justify-between mx-auto py-4">
                 <Logo />
-                <NavbarSearch />
+                <NavbarSearch isLoggedIn={session.isLoggedIn} token={session.token} />
                 <NavbarMenu isLoggedIn={session.isLoggedIn} token={session.token} />
                 <NavToggle onClickHandler={handleToggleBar} />
             </div>
