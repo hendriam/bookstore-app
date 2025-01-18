@@ -2,18 +2,13 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import { getIronSessionData } from "@/libs/session";
 
-const Profile = async () => {
+export default async function BaseLayout({ children }: { children: React.ReactNode }) {
     const session = await getIronSessionData();
-
     return (
         <>
             <Navbar isLoggedIn={session.isLoggedIn} token={session.token} />
-            <div className="max-w-screen-lg mx-auto">
-                <h1>Profile page</h1>
-            </div>
+            {children}
             <Footer />
         </>
     );
-};
-
-export default Profile;
+}
