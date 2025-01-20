@@ -1,21 +1,23 @@
-"use client"
+"use client";
 
-import { fetchAllCart } from "@/api/api-cart"
-import { useEffect, useState } from "react"
+import { fetchAllCart } from "@/api/api-cart";
+import { useEffect, useState } from "react";
 
 const TotalCart = ({ isLoggedIn, token }: { isLoggedIn: boolean | false; token: string | "" }) => {
-    const [cart, setCart] = useState(0)
+    const [cart, setCart] = useState(0);
     if (isLoggedIn) {
         useEffect(() => {
             async function fetchCart() {
-                const res = await fetchAllCart(token)
-                setCart(res)
+                const res = await fetchAllCart(token);
+                setCart(res);
             }
-            fetchCart()
-        }, [])
+            fetchCart();
+        }, []);
+    } else {
+        setCart(0);
     }
 
-    return <p className="text-xl">{cart}</p>
-}
+    return <p className="text-xl">{cart}</p>;
+};
 
-export default TotalCart
+export default TotalCart;
