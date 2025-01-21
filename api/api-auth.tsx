@@ -50,10 +50,12 @@ export const loginAction = async (prevState: any, formData: FormData): Promise<R
 
         let data: ResponseLogin = await res.json();
         await storeIronSessionData(data.token);
-        return data;
+        // return data;
     } catch (err: any) {
         return err;
     }
+
+    redirect("/");
 };
 
 export const signupAction = async (prevState: any, formData: FormData): Promise<ResponseSignUp> => {

@@ -1,5 +1,3 @@
-"use server";
-
 import { fetchDataProduct } from "@/api/api-get-products";
 import Card from "./card";
 import ProductPagination from "./product-pagination";
