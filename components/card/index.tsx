@@ -26,7 +26,7 @@ const Card: React.FC<CardProps> = ({ product }) => {
             <div className="px-5 pb-5">
                 <CardTitle id={product._id} title={product.name} />
                 <CardStar />
-                <CardFooter price={product.price} />
+                <CardFooter price={product.price} productId={product._id} />
             </div>
         </div>
     );

@@ -9,16 +9,9 @@ import { TitleFormAuth } from "./auth-title";
 import ButtonLoading from "../button-loading";
 import { loginAction } from "@/api/api-auth";
 import { useActionState, useEffect } from "react";
-import { redirect } from "next/navigation";
 
 export const FormSignIn = () => {
     const [state, formAction, isLoading] = useActionState(loginAction, undefined);
-
-    // useEffect(() => {
-    //     if (state?.token) {
-    //         redirect("/");
-    //     }
-    // });
 
     return (
         <form className="space-y-3" action={formAction}>
