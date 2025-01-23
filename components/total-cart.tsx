@@ -1,18 +1,9 @@
 "use client";
 
-import { fetchAllCart } from "@/api/api-cart";
-import { useEffect, useState } from "react";
+import { useCart } from "@/context/CartContext";
 
 const TotalCart = () => {
-    const [cart, setCart] = useState(0);
-
-    useEffect(() => {
-        async function fetchCart() {
-            const res = await fetchAllCart();
-            setCart(res);
-        }
-        fetchCart();
-    }, []);
+    const { cart } = useCart();
     return <p className="text-xl">{cart}</p>;
 };
 
